@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto:500');
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background: #000;
+}
+body {
+  /*background: url('http://www.supamadi.net/wp-content/uploads/2013/10/251bb0ee5acc614458152ba1881017b5.jpg')50% no-repeat;*/
+  background: rgba();
+  background-size: cover;
+}
+.sun {
+  font-size: 30px;
+  margin: 8px 8px;
+  color: #8e8c8c;
+}
+.window {
+  width: 80%;
+  background: #3f3f3f;
+  display: block;
+  margin: 0 auto;
+  top: 20%;
+  max-height: 80%;
+  min-height: 100px;
+  position: relative;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.mac.window {
+  box-shadow: 0 18px 40px 10px rgba(0, 0, 0, 0.36);
+}
+
+.mac .title-bar {
+  height: 40px;
+  background: linear-gradient(to bottom, #494949, #444444);
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-top: 1px solid #474747;
+}
+.mac .close,
+.mac .minimize,
+.mac .zoom {
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  background: #ddd;
+  position: absolute;
+  top: 14px;
+}
+.mac .close {
+  background-color: #ff6052;
+  left: 10px;
+}
+.mac .minimize {
+  background-color: #ffbe06;
+  left: 32px;
+}
+.mac .zoom {
+  background-color: #16cc37;
+  left: 54px;
+}
+.mac .maximize {
+  height: 20px;
+  width: 20px;
+  background: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  -webkit-clip-path: polygon(2px 9px, 0px 7px, 0px 14px, 7px 14px, 5px 12px, 7px 10px, 4px 7px, 7px 4px, 10px 7px, 12px 5px, 14px 7px, 14px 0px, 7px 0px, 9px 2px);
+}
+
+.mac .todo-input{
+  height: 45px;
+ width: 95%;
+ font-size: 40px;
+ margin: 4px 2%;
+ position: relative;
+ background: transparent;
+ border: none;
+ outline: none;
+ color: #bfbfbf;
+ font-family: 'Roboto', sans-serif;
+ }
+
+.list-group-item .message{
+  font-size: 40px;
+  position: relative;
+  margin: 0 2%;
+  font-family: 'Roboto', sans-serif;
+  color: #bfbfbf;
+  }
+.todoList {
+  width: 100%;
+  background: none;
+  display: block;
+  margin: 0 auto;
+  top: 20%;
+  position: relative;
+  max-height: 80%;
+  min-height: 100px;
+}

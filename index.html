@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Todo List</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+     <link rel="stylesheet" href="/style.css" class="theme">
+  </head>  
+  <body>
+      <i class="far fa-sun sun"></i>
+<div class="window mac">
+  <div class="title-bar">
+    <div class="close" id="close"></div>
+    <div class="minimize"></div>
+    <div class="zoom"></div>
+  </div>
+  <div class="page"><input class="todo-input" type="text" onkeypress="return windowCreator(todofield.value)" placeholder="Type Here"></div>
+</div>
+    <div id="todoList" class="list-group todoList">
+    </div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?always=1&noGeoIp=1&showNoConsent=1&remember=30"></script>    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?theme=altblack&always=1&noGeoIp=1&remember=360000000000"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/Sortable.js"></script>
+    <script src="/script.js" defer></script>
+  </body>
+</html>
