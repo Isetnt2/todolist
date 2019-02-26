@@ -19,7 +19,7 @@ body {
   background: #eee;
   display: block;
   margin: 0 auto;
-  top: 20%;
+  top: 5%;
   max-height: 80%;
   min-height: 100px;
   position: relative;
@@ -31,7 +31,7 @@ body {
   background: #3f3f3f;
   display: block;
   margin: 0 auto;
-  top: 20%;
+  top: 5%;
   max-height: 80%;
   min-height: 100px;
   position: relative;
@@ -127,7 +127,7 @@ font-family: 'Roboto', sans-serif;
   background: none;
   display: block;
   margin: 0 auto;
-  top: 20%;
+  top: 5%;
   position: relative;
   max-height: 80%;
   min-height: 100px;

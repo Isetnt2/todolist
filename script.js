@@ -10,7 +10,7 @@ updateClose();
 function windowCreator(message){
  if (event.keyCode == 13) {
 var windowDiv = document.createElement('div');
-todoListWindow.insertAdjacentHTML('beforeend', '<div class="window mac list-group-item"><div class="title-bar">  <div class="close" id="listItem"></div><div class="minimize"></div><div class="zoom"></div></div><div class="page"><p class="message">'+message+'</p></div></div>');
+todoListWindow.insertAdjacentHTML('beforeend', '<div class="window mac list-group-item"><div class="title-bar" id="light">  <div class="close" id="listItem"></div><div class="minimize"></div><div class="zoom"></div></div><div class="page"><p class="message" id="light">'+message+'</p></div></div>');
 todofield.value = null;
 updateClose();
 setCookies();
@@ -52,23 +52,23 @@ function updateClose(){
 var close = document.querySelectorAll('#listItem');
 for (var i = 0; i < close.length; i++) {
     close[i].addEventListener("click", function(){
-  let parent= this.parentNode.parentNode;
-   parent.parentNode.removeChild(parent);
-      setCookies();
+      let parent = this.parentNode.parentNode;
+      parent.remove();
+         setCookies();
   });
 }
 };
 // Theme selector
 document.querySelector('.sun').addEventListener('click', () => {
-var href = $("link.theme").attr("href");
+var href = document.querySelector("link.theme").getAttribute("href");
 if (href == "style-dark.css"){
-  $("link.theme").attr("href", "style.css")
+  document.querySelector("link.theme").setAttribute("href", "style.css")
     if (Cookies.get('cookiebar') == "CookieAllowed"){
  Cookies.set('theme', 'light',  { expires: 36500000 });
 }
 }
 else {
-$("link.theme").attr("href", "style-dark.css")
+  document.querySelector("link.theme").setAttribute("href", "style-dark.css")
     if (Cookies.get('cookiebar') == "CookieAllowed"){
 Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
