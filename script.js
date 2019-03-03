@@ -73,4 +73,21 @@ else {
 Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 }
+var modal = document.querySelector(".modal");
+var info = document.querySelector(".info");
+var closeButton = document.querySelector(".close");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+info.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
 });
