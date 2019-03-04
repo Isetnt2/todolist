@@ -169,8 +169,8 @@ font-family: 'Roboto', sans-serif;
 /* helpers */
 .absolute-centering, body:after, .login-button {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
   margin: auto;
 }
 
