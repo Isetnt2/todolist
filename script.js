@@ -60,13 +60,13 @@ for (var i = 0; i < close.length; i++) {
 };
 const loginOpen = netlifyIdentity.open();
 const logout = netlifyIdentity.logout();
-var loginButton = document.querySelector('#login');
+var loginButton = document.querySelector('.login-button');
 var logoutButton = document.querySelector('#logout')
  // Get the current user:
 const user = netlifyIdentity.currentUser();
 
 // Bind to events
-netlifyIdentity.on('init', function init(){console.log('init', user); document.getElementById('login').addEventListener('click', netlifyIdentity.open());});
+netlifyIdentity.on('init', function init(){console.log('init', user); loginButton.addEventListener('click', netlifyIdentity.open());});
 netlifyIdentity.on('login', function logout(){
     console.log('login', user);
     loginButton.innerHTML='<span>Logout</span>';
