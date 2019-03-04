@@ -58,12 +58,10 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
-var loginOpen = netlifyIdentity.open();
 var logout = netlifyIdentity.logout();
 var loginButton = document.querySelector('.login-button');
 const user = netlifyIdentity.currentUser();
-document.querySelector('.login-button').addEventListener('click', netlifyIdentity.open());
-document.querySelector('.login-button').addEventListener('click', loginOpen);
+document.querySelector('.login-button').addEventListener('click', netlifyIdentity.open(), true);
 netlifyIdentity.on('login', function logout(){
     console.log('login', user);
     document.querySelector('.login-button').innerHTML='<span>Logout</span>';
