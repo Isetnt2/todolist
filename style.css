@@ -136,7 +136,7 @@ font-family: 'Roboto', sans-serif;
 }
 .login-button {
   display: block;
-  width: 30%;
+  width: 220px;
   height: 70px;
   z-index: 1;
 }
@@ -165,9 +165,9 @@ font-family: 'Roboto', sans-serif;
 /* helpers */
 .absolute-centering, body:after, .login-button, .login-button:after {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  margin: auto;
+  top: 0;
+  right: 0;
+  margin: 8px 8px auto auto;
 }
 
 .text-formatting, .login-button {
