@@ -58,7 +58,7 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
-var loginOpen = netlifyIdentity.open();
+var loginOpen = netlifyIdentity.open();;
 var logout = netlifyIdentity.logout();
 const loginButton = document.querySelector('.login-button');
 loginButton.addEventListener('click', loginOpen, true);
