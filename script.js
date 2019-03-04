@@ -62,11 +62,11 @@ var loginOpen = netlifyIdentity.open();
 var logout = netlifyIdentity.logout();
 var loginButton = document.querySelector('.login-button');
 const user = netlifyIdentity.currentUser();
-loginButton.addEventListener('click', netlifyIdentity.open());
-loginButton.addEventListener('click', loginOpen);
+document.querySelector('.login-button').addEventListener('click', netlifyIdentity.open());
+document.querySelector('.login-button').addEventListener('click', loginOpen);
 netlifyIdentity.on('login', function logout(){
     console.log('login', user);
-    loginButton.innerHTML='<span>Logout</span>';
+    document.querySelector('.login-button').innerHTML='<span>Logout</span>';
 });
 
 netlifyIdentity.on('logout', function login(){
