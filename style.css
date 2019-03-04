@@ -4,7 +4,7 @@
 html,
 body {
   padding: 0;
-  margin: 0;
+  margin: 8px;
   height: 100%;
 }
 body {
@@ -167,7 +167,7 @@ font-family: 'Roboto', sans-serif;
   position: absolute;
   top: 0;
   right: 0;
-  margin: 8px 8px auto auto;
+  margin: auto;
 }
 
 .text-formatting, .login-button {
