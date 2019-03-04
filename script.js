@@ -63,7 +63,6 @@ const logout = netlifyIdentity.logout();
 var loginButton = document.querySelector('#login');
 var logoutButton = document.querySelector('#logout')
 loginButton.addEventListener('click', loginOpen, true);
-logoutButton.addEventListener('click', logout, true);
  // Get the current user:
 const user = netlifyIdentity.currentUser();
 
@@ -73,6 +72,7 @@ netlifyIdentity.on('login', function logout(){
     console.log('login', user);
     loginButton.innerHTML='<span>Logout</span>';
     loginButton.id = logout;
+    logoutButton.addEventListener('click', logout, true);
 });
 
 netlifyIdentity.on('logout', function login(){
