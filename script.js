@@ -61,6 +61,16 @@ for (var i = 0; i < close.length; i++) {
 document.querySelector('.login-button').addEventListener('click', function(){
 netlifyIdentity.open();
  });
+ // Get the current user:
+const user = netlifyIdentity.currentUser();
+
+// Bind to events
+netlifyIdentity.on('init', user => console.log('init', user));
+netlifyIdentity.on('login', function logout(){console.log('login', user); document.querySelector('.login-button').innerHTML='<span>Logout</span>'; });
+netlifyIdentity.on('logout', () => console.log('Logged out'));
+netlifyIdentity.on('error', err => console.error('Error', err));
+netlifyIdentity.on('open', () => console.log('Widget opened'));
+netlifyIdentity.on('close', () => console.log('Widget closed'));
 // Theme selector
 document.querySelector('.sun').addEventListener('click', () => {
 var href = document.querySelector("link.theme").getAttribute("href");
