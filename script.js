@@ -58,8 +58,8 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
-var loginOpen = netlifyIdentity.open();;
-var logout = netlifyIdentity.logout();
+const loginOpen = netlifyIdentity.open();;
+const logout = netlifyIdentity.logout();
 const loginButton = document.querySelector('.login-button');
 loginButton.addEventListener('click', loginOpen, true);
  // Get the current user:
