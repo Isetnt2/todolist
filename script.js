@@ -58,13 +58,13 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
-document.querySelector('.login-button').addEventListener('click', ()=> netlifyIdentity.open());
+document.querySelector('.login-button').addEventListener('click', ()=> netlifyIdentity.open(), true);
  // Get the current user:
 const user = netlifyIdentity.currentUser();
 
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', user));
-netlifyIdentity.on('login', function logout(){console.log('login', user); document.querySelector('.login-button').innerHTML='<span>Logout</span>'; document.querySelector('.login-button').removeEventListener('click', ()=> netlifyIdentity.open())});
+netlifyIdentity.on('login', function logout(){console.log('login', user); document.querySelector('.login-button').innerHTML='<span>Logout</span>'; document.querySelector('.login-button').removeEventListener('click', ()=> netlifyIdentity.open(), true)});
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
