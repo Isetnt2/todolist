@@ -61,7 +61,6 @@ for (var i = 0; i < close.length; i++) {
 const loginOpen = netlifyIdentity.open();
 const logout = netlifyIdentity.logout();
 var loginButton = document.querySelector('.login-button');
-var logoutButton = document.querySelector('#logout')
  // Get the current user:
 const user = netlifyIdentity.currentUser();
 
