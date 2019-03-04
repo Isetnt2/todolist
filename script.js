@@ -58,14 +58,12 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
-function logIn(){
 var loginOpen = netlifyIdentity.open();
 var logout = netlifyIdentity.logout();
 var loginButton = document.querySelector('.login-button');
 const user = netlifyIdentity.currentUser();
 loginButton.addEventListener('click', netlifyIdentity.open());
 loginButton.addEventListener('click', loginOpen);
-netlifyIdentity.on('init', function init(){console.log('init', user); });
 netlifyIdentity.on('login', function logout(){
     console.log('login', user);
     loginButton.innerHTML='<span>Logout</span>';
@@ -79,8 +77,6 @@ netlifyIdentity.on('logout', function login(){
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
 netlifyIdentity.on('close', () => console.log('Widget closed'));
-};
-logIn();
 // Theme selector
 document.querySelector('.sun').addEventListener('click', () => {
 var href = document.querySelector("link.theme").getAttribute("href");
