@@ -65,7 +65,7 @@ var loginButton = document.querySelector('.login-button');
 const user = netlifyIdentity.currentUser();
 
 // Bind to events
-netlifyIdentity.on('init', function init(){console.log('init', user); loginButton.addEventListener('click', netlifyIdentity.open());});
+netlifyIdentity.on('init', function init(){console.log('init', user); loginButton.addEventListener('click', loginOpen);});
 netlifyIdentity.on('login', function logout(){
     console.log('login', user);
     loginButton.innerHTML='<span>Logout</span>';
