@@ -61,11 +61,11 @@ for (var i = 0; i < close.length; i++) {
 const loginOpen = netlifyIdentity.open();
 const logout = netlifyIdentity.logout();
 var loginButton = document.querySelector('.login-button');
+loginButton.addEventListener('click', loginOpen);
  // Get the current user:
 const user = netlifyIdentity.currentUser();
-
 // Bind to events
-netlifyIdentity.on('init', function init(){console.log('init', user); loginButton.addEventListener('click', loginOpen);});
+netlifyIdentity.on('init', function init(){console.log('init', user); });
 netlifyIdentity.on('login', function logout(){
     console.log('login', user);
     loginButton.innerHTML='<span>Logout</span>';
