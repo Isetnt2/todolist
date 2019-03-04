@@ -58,6 +58,9 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
+document.querySelector('.login-button').addEventListner('click, () => {
+netlifyIdentity.open();
+ });
 // Theme selector
 document.querySelector('.sun').addEventListener('click', () => {
 var href = document.querySelector("link.theme").getAttribute("href");
