@@ -59,14 +59,27 @@ for (var i = 0; i < close.length; i++) {
 }
 };
 var loginOpen = netlifyIdentity.open();
-document.querySelector('.login-button').addEventListener('click', loginOpen, true);
+var logout = netlifyIdentity.logout();
+const loginButton = document.querySelector('.login-button');
+loginButton.addEventListener('click', loginOpen, true);
  // Get the current user:
 const user = netlifyIdentity.currentUser();
 
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', user));
-netlifyIdentity.on('login', function logout(){console.log('login', user); document.querySelector('.login-button').innerHTML='<span>Logout</span>'; document.querySelector('.login-button').removeEventListener('click', loginOpen, true)});
-netlifyIdentity.on('logout', () => console.log('Logged out'));
+netlifyIdentity.on('login', function logout(){
+    console.log('login', user);
+    loginButton.innerHTML='<span>Logout</span>';
+    loginButton.removeEventListener('click', loginOpen, true);
+    loginButton.addEventListener('click', logout, true);
+});
+
+netlifyIdentity.on('logout', function login(){
+    console.log('Logged out');
+    loginButton.innerHTML='<span>Login</span>';
+    loginButton.removeEventListener('click', logout, true);
+    loginButton.addEventListener('click', loginOpen, true);
+});
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
 netlifyIdentity.on('close', () => console.log('Widget closed'));
