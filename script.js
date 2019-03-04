@@ -58,12 +58,7 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
-/*
-function login(){
-const user = netlifyIdentity.currentUser();
-document.querySelector('.login-button').addEventListener('click', netlifyIdentity.open(), true);
-};
-*/
+
 // Theme selector
 document.querySelector('.sun').addEventListener('click', () => {
 var href = document.querySelector("link.theme").getAttribute("href");
