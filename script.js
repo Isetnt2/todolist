@@ -66,12 +66,12 @@ var logoutButton = document.querySelector('#logout')
 const user = netlifyIdentity.currentUser();
 
 // Bind to events
-netlifyIdentity.on('init', function(){console.log('init', user); loginButton.addEventListener('click', loginOpen, true);});
+netlifyIdentity.on('init', function(){console.log('init', user); loginButton.addEventListener('click', netlifyIdentity.open(), true);});
 netlifyIdentity.on('login', function logout(){
     console.log('login', user);
     loginButton.innerHTML='<span>Logout</span>';
     loginButton.id = logout;
-    logoutButton.addEventListener('click', logout, true);
+    logoutButton.addEventListener('click', netlifyIdentity.logout(), true);
 });
 
 netlifyIdentity.on('logout', function login(){
