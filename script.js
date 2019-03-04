@@ -72,9 +72,6 @@ netlifyIdentity.on('logout', function login(){
     logoutButton.innerHTML='<span>Login</span>';
     logoutButton.id = login;
 });
-netlifyIdentity.on('error', err => console.error('Error', err));
-netlifyIdentity.on('open', () => console.log('Widget opened'));
-netlifyIdentity.on('close', () => console.log('Widget closed'));
 // Theme selector
 document.querySelector('.sun').addEventListener('click', () => {
 var href = document.querySelector("link.theme").getAttribute("href");
