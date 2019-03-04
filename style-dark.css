@@ -111,11 +111,15 @@ body {
   z-index: 1;
 }
 .login-button:after {
+  position: absolute;
   content: '';
   background: linear-gradient(120deg, #6559ae, #ff7159, #6559ae);
   background-size: 400% 400%;
   height: 100%;
   width: 100%;
+  top: 0;
+  right: 0;
+  margin: auto;
   -webkit-clip-path: polygon(0% 100%, 4px 100%, 4px 4px, 216px 4px, 216px 66px, 4px 66px, 4px 100%, 100% 100%, 100% 0%, 0% 0%);
   -moz-animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
   -webkit-animation: gradient 3s ease-in-out infinite, border 1s forwards ease-in-out reverse;
@@ -133,10 +137,10 @@ body {
 }
 
 /* helpers */
-.absolute-centering, body:after, .login-button, .login-button:after {
+.absolute-centering, body:after, .login-button {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
   margin: auto;
 }
 
