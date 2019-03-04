@@ -58,7 +58,7 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
-document.querySelector('.login-button').addEventListener('click, function(){
+document.querySelector('.login-button').addEventListener('click', function(){
 netlifyIdentity.open();
  });
 // Theme selector
