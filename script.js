@@ -58,6 +58,7 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
+function logIn(){
 var loginOpen = netlifyIdentity.open();
 var logout = netlifyIdentity.logout();
 var loginButton = document.querySelector('.login-button');
@@ -78,6 +79,7 @@ netlifyIdentity.on('logout', function login(){
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
 netlifyIdentity.on('close', () => console.log('Widget closed'));
+};
 // Theme selector
 document.querySelector('.sun').addEventListener('click', () => {
 var href = document.querySelector("link.theme").getAttribute("href");
