@@ -58,20 +58,12 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
-var logout = netlifyIdentity.logout();
-var loginButton = document.querySelector('.login-button');
+/*
+function login(){
 const user = netlifyIdentity.currentUser();
 document.querySelector('.login-button').addEventListener('click', netlifyIdentity.open(), true);
-netlifyIdentity.on('login', function logout(){
-    console.log('login', user);
-    document.querySelector('.login-button').innerHTML='<span>Logout</span>';
-});
-
-netlifyIdentity.on('logout', function login(){
-    console.log('Logged out');
-    logoutButton.innerHTML='<span>Login</span>';
-    logoutButton.id = login;
-});
+};
+*/
 // Theme selector
 document.querySelector('.sun').addEventListener('click', () => {
 var href = document.querySelector("link.theme").getAttribute("href");
