@@ -23,10 +23,10 @@ Sortable.create(todoListWindow, { /* options */ });
    let todos = document.querySelector('.list-group');
    let todosToAdd = Cookies.getJSON('todos').toString().replace('{','').replace('}', '');
       if (Cookies.get('theme').toString() == 'light'){
-    $("link.theme").attr("href", "style.css");
+    document.querySelector("link.theme").setAttribute("href", "style.css");
     }
     else {
-      $("link.theme").attr("href", "style-dark.css");
+      document.querySelector("link.theme").setAttribute("href", "style-dark.css");
     }
    if (todosToAdd == "[object Object]"){
      return null
@@ -58,6 +58,7 @@ for (var i = 0; i < close.length; i++) {
   });
 }
 };
+
 // Theme selector
 document.querySelector('.sun').addEventListener('click', () => {
 var href = document.querySelector("link.theme").getAttribute("href");
