@@ -125,7 +125,7 @@ $.ajax(settings).done(function (response) {
     "url": "https://todo-a4247d.appdrag.site/api/todoUpdate",
     "data": {
       "userId": userId,
-      "todoData": todos.innerHTML,
+      "todoData": todos.innerHTML.toString(),
       "APIKey": "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5"
     },
     "method": "PUT",
