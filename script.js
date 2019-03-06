@@ -80,7 +80,7 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 const user = netlifyIdentity.currentUser();
 
 // Bind to events
-netlifyIdentity.on('init', user => console.log('init', get(user.id)));
+netlifyIdentity.on('init', user => console.log('init', "IDK"));
 netlifyIdentity.on('login', user => console.log('login', update(user.id)));
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
