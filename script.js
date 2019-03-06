@@ -81,7 +81,7 @@ const user = netlifyIdentity.currentUser();
 
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', "IDK"));
-netlifyIdentity.on('login', user => console.log('login', update(user.id)));
+netlifyIdentity.on('login', user => console.log('login', update(user.id), get(user.id)));
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
@@ -102,8 +102,14 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    });
-  };
+    if (response.Table[0] == "[object Object]"){
+      return null
+    }
+    else{
+    todos.insertAdjacentHTML('beforeend', response.Table[0]);
+    updateClose();
+    }
+  });
   var userAdd = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/userAdd",
     "data": {
