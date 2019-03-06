@@ -110,6 +110,7 @@ $.ajax(settings).done(function (response) {
     updateClose();
     }
   });
+};
   var userAdd = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/userAdd",
     "data": {
