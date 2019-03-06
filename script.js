@@ -107,7 +107,7 @@ $.ajax(settings).done(function (response) {
       return null
     }
     else{
-    todos.insertAdjacentHTML('beforeend', response.Table[0].todoData);
+    todos.innerHTML = response.Table[0].todoData.replace("'", '').replace('"', "");
     updateClose();
     }
   });
