@@ -121,7 +121,7 @@ $.ajax(settings).done(function (response) {
     });
   };
   var todos = document.querySelector('.list-group');
-  var todosToAdd = Cookies.getJSON('todos').toString().replace('{','').replace('}', '');
+  var todosToAdd = Cookies.getJSON('todos').toString().replace('{','').replace('}', '').replace("'", '"');
   var update = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/todoUpdate",
     "data": {
