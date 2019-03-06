@@ -103,13 +103,8 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    if (response.Table[0].todoData == "[object Object]"){
-      return null
-    }
-    else{
     todos.innerHTML = response.Table[0].todoData.replace("'", '').replace('"', "");
     updateClose();
-    }
   });
 };
   var userAdd = function(userId){settings = {
