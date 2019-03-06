@@ -103,7 +103,7 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    todos.innerHTML = response.Table[0].todoData.replace("'", '').replace('"', "");
+    document.querySelector('.list-group').insertAdjacentHTML('beforeend', response.Table[0].todoData.replace("'", ''));
     updateClose();
   });
 };
