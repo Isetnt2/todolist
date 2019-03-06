@@ -121,12 +121,11 @@ $.ajax(settings).done(function (response) {
     });
   };
   var todos = document.querySelector('.list-group');
-  var todosToAdd = Cookies.getJSON('todos').toString().replace('{','').replace('}', '');
   var update = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/todoUpdate",
     "data": {
       "userId": userId,
-      "todoData": "'"+todosToAdd +"'",
+      "todoData": "Reeeeeee",
       "APIKey": "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5"
     },
     "method": "PUT",
