@@ -79,7 +79,7 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 const user = netlifyIdentity.currentUser();
 
 // Bind to events
-netlifyIdentity.on('init', user => console.log('init', user));
+netlifyIdentity.on('init', user => console.log('init', user.id));
 netlifyIdentity.on('login', user => console.log('login', user));
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
