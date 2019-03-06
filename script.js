@@ -79,17 +79,17 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 const user = netlifyIdentity.currentUser();
 
 // Bind to events
-netlifyIdentity.on('init', user => console.log('init', user.id));
+netlifyIdentity.on('init', user => console.log('init', get(userId)));
 netlifyIdentity.on('login', user => console.log('login', user));
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
 netlifyIdentity.on('close', () => console.log('Widget closed'));
 
-var settings = {
+var get = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/getTodo",
     "data": {
-        "userId" : user => user.id,
+        "userId" : userId,
         "APIKey" : "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5",
         "AD_PageNbr" : "1",
         "AD_PageSize" : "500"
@@ -102,3 +102,4 @@ var settings = {
 $.ajax(settings).done(function (response) {
     console.log(response);
     });
+  };
