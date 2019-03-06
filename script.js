@@ -76,8 +76,17 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 });
 // Get todos via db
-    const user = netlifyIdentity.currentUser();
-    var settings = {
+const user = netlifyIdentity.currentUser();
+
+// Bind to events
+netlifyIdentity.on('init', user => console.log('init', user));
+netlifyIdentity.on('login', user => console.log('login', user));
+netlifyIdentity.on('logout', () => console.log('Logged out'));
+netlifyIdentity.on('error', err => console.error('Error', err));
+netlifyIdentity.on('open', () => console.log('Widget opened'));
+netlifyIdentity.on('close', () => console.log('Widget closed'));
+
+/*var settings = {
     "url": "https://todo-a4247d.appdrag.site/api/getTodo",
     "data": {
         "userId" : netlifyIdentity.currentUser().id,
@@ -92,4 +101,4 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    });
+    });*/
