@@ -1,6 +1,6 @@
 const todofield = document.getElementsByClassName('todo-input')[0];
 const todoListWindow = document.querySelector('.todoList');
-let todos = document.querySelector('.list-group');
+var todos = document.querySelector('.list-group');
 var Cookies;
 var Sortable;
 document.addEventListener('DOMContentLoaded', function(){
@@ -81,7 +81,7 @@ const user = netlifyIdentity.currentUser();
 
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', get(user.id)));
-netlifyIdentity.on('login', user => console.log('login', update(user.id)));
+netlifyIdentity.on('login', user => console.log('login', update()));
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
@@ -104,7 +104,7 @@ $.ajax(settings).done(function (response) {
     console.log(response);
     });
   };
-  var update = function(userId){settings = {
+  var userAdd = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/userAdd",
     "data": {
         "userId" : userId,
@@ -112,6 +112,22 @@ $.ajax(settings).done(function (response) {
         "APIKey" : "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5"
     },
     "method": "POST",
+    "async": true,
+    "crossDomain": true,
+    "processData": true
+};
+$.ajax(settings).done(function (response) {
+    console.log(response);
+    });
+  };
+  var update = function(userId){settings = {
+    "url": "https://todo-a4247d.appdrag.site/api/todoUpdate",
+    "data": {
+        "userId" : userId,
+        "todoData" : todos.innerHTML,
+        "APIKey" : "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5"
+    },
+    "method": "PUT",
     "async": true,
     "crossDomain": true,
     "processData": true
