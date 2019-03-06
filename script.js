@@ -15,6 +15,7 @@ todoListWindow.insertAdjacentHTML('beforeend', '<div class="window mac list-grou
 todofield.value = null;
 updateClose();
 setCookies();
+update(user.id);
 Sortable.create(todoListWindow, { /* options */ });
 }
   else{null}
