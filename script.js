@@ -76,10 +76,7 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 });
 // Get todos via db
- netlifyIdentity.currentUser()
- .then(response => console.log(response));
-
-    var userId = netlifyIdentity.currentUser();
+    const userId = netlifyIdentity.currentUser();
     var settings = {
     "url": "https://todo-a4247d.appdrag.site/api/getTodo",
     "data": {
