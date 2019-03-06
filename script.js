@@ -82,7 +82,7 @@ const user = netlifyIdentity.currentUser();
 
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', "IDK"));
-netlifyIdentity.on('login', user => console.log('login', update(user.id), get(user.id)));
+netlifyIdentity.on('login', user => console.log('login', get(user.id)));
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
@@ -103,7 +103,7 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    if (response.Table[0] == "[object Object]"){
+    if (response.Table[0].todoData == "[object Object]"){
       return null
     }
     else{
