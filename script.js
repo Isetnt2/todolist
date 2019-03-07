@@ -15,7 +15,6 @@ todoListWindow.insertAdjacentHTML('beforeend', '<div class="window mac list-grou
 todofield.value = null;
 updateClose();
 setCookies();
-update(netlifyIdentity.currentUser().id);
 Sortable.create(todoListWindow, { /* options */ });
 }
   else{null}
@@ -110,7 +109,7 @@ var get = function(userId){settings = {
 $.ajax(settings).done(function (response) {
     console.log(response.Table[0].todoData);
     var todoJSON = response.Table[0].todoData;
-    var todoHTML = window.himalaya.stringify(todoJSON);
+    var todoHTML = window.himalaya.stringify(response.Table[0].todoData);
     console.log(todoHTML);
     document.querySelector('.list-group').insertAdjacentHTML('beforeend', todoHTML);
     updateClose();
