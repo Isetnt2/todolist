@@ -39,7 +39,7 @@ Sortable.create(todoListWindow, { /* options */ });
    const json = window.himalaya.parse(document.querySelector('.list-group').innerHTML);
     console.log('👉', JSON.stringify(json));
     const user = netlifyIdentity.currentUser();
-    //update(user.id, json);
+    update(user.id, json);
    }
  };
  // Sets cookies for todos
