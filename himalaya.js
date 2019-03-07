@@ -8379,7 +8379,6 @@ function formatAttributes(attributes) {
 function toHTML(tree, options) {
   cov_fs4bzhlz4.f[2]++;
   cov_fs4bzhlz4.s[7]++;
-
   return tree.map(function (node) {
     cov_fs4bzhlz4.f[3]++;
     cov_fs4bzhlz4.s[8]++;
