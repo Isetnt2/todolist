@@ -77,7 +77,7 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 }
 });
-const html = '<div>Hello world</div>'
+const html = todos.innerHTML;
 const json = window.himalaya.parse(html);
 console.log('👉', json);
 
