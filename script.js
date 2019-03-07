@@ -6,8 +6,6 @@ var Sortable;
 document.addEventListener('DOMContentLoaded', function(){
 retriveTodos();
 updateClose();
-const json = window.himalaya.parse(document.querySelector('.list-group').innerHTML);
-console.log('👉', json);
 });
 // Creates the todo node
 function windowCreator(message){
@@ -38,6 +36,8 @@ Sortable.create(todoListWindow, { /* options */ });
    else{
    todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
+   const json = window.himalaya.parse(document.querySelector('.list-group').innerHTML);
+    console.log('👉', json);
    }
  };
  // Sets cookies for todos
