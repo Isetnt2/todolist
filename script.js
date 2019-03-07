@@ -109,7 +109,7 @@ var get = function(userId){settings = {
 $.ajax(settings).done(function (response) {
     console.log(response);
     var jsonHTML = json2html(response.Table[0].todoData);
-    console.log(jsonHTML);
+    console.log(json2html(response.Table[0].todoData));
     document.querySelector('.list-group').insertAdjacentHTML('beforeend', jsonHTML);
     updateClose();
   });
