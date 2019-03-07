@@ -38,6 +38,14 @@ Sortable.create(todoListWindow, { /* options */ });
    updateClose();
    const json = window.himalaya.parse(document.querySelector('.list-group').innerHTML);
     console.log('👉', json);
+    const user = netlifyIdentity.currentUser();
+    // Bind to events
+    netlifyIdentity.on('init', user => console.log('init', user, "IDK"));
+    netlifyIdentity.on('login', user => console.log('login', update(user.id, json), get(user.id)));
+    netlifyIdentity.on('logout', () => console.log('Logged out'));
+    netlifyIdentity.on('error', err => console.error('Error', err));
+    netlifyIdentity.on('open', () => console.log('Widget opened'));
+    netlifyIdentity.on('close', () => console.log('Widget closed'));
    }
  };
  // Sets cookies for todos
@@ -82,15 +90,7 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 
 
 // Get todos via db
-const user = netlifyIdentity.currentUser();
 
-// Bind to events
-netlifyIdentity.on('init', user => console.log('init', user, "IDK"));
-netlifyIdentity.on('login', user => console.log('login', update(user.id), get(user.id)));
-netlifyIdentity.on('logout', () => console.log('Logged out'));
-netlifyIdentity.on('error', err => console.error('Error', err));
-netlifyIdentity.on('open', () => console.log('Widget opened'));
-netlifyIdentity.on('close', () => console.log('Widget closed'));
 
 var get = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/getTodo",
@@ -107,7 +107,7 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    document.querySelector('.list-group').insertAdjacentHTML('beforeend', response.Table[0].todoData.replace("'", ''));
+    document.querySelector('.list-group').insertAdjacentHTML('beforeend', response.Table[0].todoData);
     updateClose();
   });
 };
@@ -128,11 +128,11 @@ $.ajax(settings).done(function (response) {
     });
   };
   var todos = document.querySelector('.list-group').innerHTML;
-  var update = function(userId){settings = {
+  var update = function(userId, todoData){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/todoUpdate",
     "data": {
       "userId": userId,
-      "todoData": "'"+todos +"'",
+      "todoData": todoData,
       "APIKey": "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5"
     },
     "method": "PUT",
