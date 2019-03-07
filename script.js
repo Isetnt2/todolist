@@ -108,7 +108,7 @@ var get = function(userId){settings = {
     "processData": true
 };
 $.ajax(settings).done(function (response) {
-    console.log(response.Table);
+    console.log(response.Table[0].todoData);
     var todoJSON = response.Table[0].todoData;
     var todoHTML = window.himalaya.stringify(todoJSON);
     console.log(todoHTML);
