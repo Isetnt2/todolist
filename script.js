@@ -109,8 +109,8 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    console.log(JSON.parse(response.Table[0].todoData));
-    var todoHTML = stringify(response.Table[0].todoData);
+    var todoJSON = response.Table[0].todoData;
+    var todoHTML = window.himalaya.stringify(todoJSON);
     console.log(todoHTML);
     document.querySelector('.list-group').insertAdjacentHTML('beforeend', todoHTML);
     updateClose();
