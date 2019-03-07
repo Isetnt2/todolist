@@ -37,7 +37,7 @@ Sortable.create(todoListWindow, { /* options */ });
    todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
    const json = window.himalaya.parse(document.querySelector('.list-group').innerHTML);
-    console.log('👉', JSON.stringify(json);
+    console.log('👉', JSON.stringify(json));
     const user = netlifyIdentity.currentUser();
     update(user.id, JSON.stringify(json));
    }
