@@ -108,11 +108,12 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    var html = json2html(response.Table[0].todoData);
+    var html = JSON.parse(response.Table[0].todoData);
+    var jsonHTML = json2html(html);
     var todoJSON = response.Table[0].todoData;
-    console.log(todoJSON);
+    console.log(jsonHTML);
     console.log(html);
-    document.querySelector('.list-group').insertAdjacentHTML('beforeend', html);
+    document.querySelector('.list-group').insertAdjacentHTML('beforeend', jsonHTML);
     updateClose();
   });
 };
