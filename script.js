@@ -39,7 +39,7 @@ Sortable.create(todoListWindow, { /* options */ });
    const json = window.himalaya.parse(document.querySelector('.list-group').innerHTML);
     console.log('👉', JSON.stringify(json));
     const user = netlifyIdentity.currentUser();
-    update(user.id, JSON.stringify(json));
+    update(user.id, json);
    }
  };
  // Sets cookies for todos
@@ -110,7 +110,7 @@ var get = function(userId){settings = {
 $.ajax(settings).done(function (response) {
     console.log(response);
     console.log(JSON.parse(response.Table[0].todoData));
-    var todoHTML = stringify(JSON.parse(response.Table[0].todoData));
+    var todoHTML = stringify(response.Table[0].todoData);
     document.querySelector('.list-group').insertAdjacentHTML('beforeend', todoHTML);
     updateClose();
   });
