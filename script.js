@@ -38,7 +38,7 @@ Sortable.create(todoListWindow, { /* options */ });
    var json = html2json(document.querySelector('.list-group').innerHTML);
     console.log('👉', json);
     const user = netlifyIdentity.currentUser();
-    update(user.id, json);
+    update(user.id);
    }
  };
  // Sets cookies for todos
@@ -133,11 +133,11 @@ $.ajax(settings).done(function (response) {
     });
   };
   var todos = document.querySelector('.list-group').innerHTML;
-  var update = function(userId, todoData){settings = {
+  var update = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/todoUpdate",
     "data": {
       "userId": userId,
-      "todoData": todoData,
+      "todoData": html2json(document.querySelector('.list-group').innerHTML),
       "APIKey": "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5"
     },
     "method": "PUT",
