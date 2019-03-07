@@ -35,8 +35,8 @@ Sortable.create(todoListWindow, { /* options */ });
    else{
    todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
-   const json = window.himalaya.parse(document.querySelector('.list-group').innerHTML);
-    console.log('👉', JSON.stringify(json));
+   json === html2json(document.querySelector('.list-group').innerHTML);
+    console.log('👉', json);
     const user = netlifyIdentity.currentUser();
     update(user.id, json);
    }
@@ -108,11 +108,11 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
+    html === json2html(response.Table[0].todoData);
     var todoJSON = response.Table[0].todoData;
-    var todoHTML = window.himalaya.stringify(response.Table[0].todoData);
     console.log(todoJSON);
-    console.log(todoHTML);
-    document.querySelector('.list-group').insertAdjacentHTML('beforeend', todoHTML);
+    console.log(html);
+    document.querySelector('.list-group').insertAdjacentHTML('beforeend', html);
     updateClose();
   });
 };
