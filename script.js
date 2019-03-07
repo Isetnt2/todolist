@@ -6,6 +6,8 @@ var Sortable;
 document.addEventListener('DOMContentLoaded', function(){
 retriveTodos();
 updateClose();
+const json = window.himalaya.parse(document.querySelector('.list-group').innerHTML);
+console.log('👉', json);
 });
 // Creates the todo node
 function windowCreator(message){
@@ -77,9 +79,7 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 }
 });
-const html = document.querySelector('.list-group').innerHTML
-const json = window.himalaya.parse(html);
-console.log('👉', json);
+
 
 // Get todos via db
 const user = netlifyIdentity.currentUser();
