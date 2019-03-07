@@ -77,6 +77,10 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 }
 });
+const html = '<div>Hello world</div>'
+const json = window.himalaya.parse(html);
+console.log('👉', json);
+
 // Get todos via db
 const user = netlifyIdentity.currentUser();
 
