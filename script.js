@@ -109,7 +109,9 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    document.querySelector('.list-group').insertAdjacentHTML('beforeend', response.Table[0].todoData.replace("'", ''));
+    console.log(JSON.parse(response.Table[0].todoData));
+    var todoHTML = stringify(JSON.parse(response.Table[0].todoData));
+    document.querySelector('.list-group').insertAdjacentHTML('beforeend', todoHTML);
     updateClose();
   });
 };
