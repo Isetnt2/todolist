@@ -35,7 +35,7 @@ Sortable.create(todoListWindow, { /* options */ });
    else{
    todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
-   json === html2json(document.querySelector('.list-group').innerHTML);
+   var json = html2json(document.querySelector('.list-group').innerHTML);
     console.log('👉', json);
     const user = netlifyIdentity.currentUser();
     update(user.id, json);
@@ -108,7 +108,7 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    html === json2html(response.Table[0].todoData);
+    var html = json2html(response.Table[0].todoData);
     var todoJSON = response.Table[0].todoData;
     console.log(todoJSON);
     console.log(html);
