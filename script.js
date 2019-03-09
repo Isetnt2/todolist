@@ -39,7 +39,6 @@ update(user.id)
    updateClose();
    var json = html2json(document.querySelector('.list-group').innerHTML);
     console.log('👉', json);
-    const user = netlifyIdentity.currentUser();
     update(user.id);
    }
  };
@@ -82,10 +81,6 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 }
 });
-
-
-// Get todos via db
-const user = netlifyIdentity.currentUser();
 
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', user, "IDK"));
