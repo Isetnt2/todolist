@@ -1,4 +1,5 @@
 const todofield = document.getElementsByClassName('todo-input')[0];
+const user = netlifyIdentity.currentUser();
 const todoListWindow = document.querySelector('.todoList');
 var todos = document.querySelector('.list-group');
 var Cookies;
@@ -16,6 +17,7 @@ todofield.value = null;
 updateClose();
 setCookies();
 Sortable.create(todoListWindow, { /* options */ });
+update(user.id)
 }
   else{null}
  };
