@@ -145,6 +145,7 @@ else if (response.Table[0].id == user.id){
     return null;
 }
 });
+};
   var userAdd = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/userAdd",
     "data": {
