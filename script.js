@@ -39,8 +39,8 @@ Sortable.create(todoListWindow, { /* options */ });
     console.log('👉', json);
     const user = netlifyIdentity.currentUser();
     update(user.id);
-    apikey = "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5";
-    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, {userId : user.id, todoData : json, APIkey : apikey});
+    apikey = "296c2d24-168e-4105-97bb-e6668d4273b2";
+    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, {"APIkey" : apikey, "userId" : user.id, "todoData" : json});
    }
  };
  // Sets cookies for todos
@@ -99,7 +99,7 @@ var get = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/getTodo",
     "data": {
         "userId" : userId,
-        "APIKey" : "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5",
+        "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2",
         "AD_PageNbr" : "1",
         "AD_PageSize" : "500"
     },
@@ -159,7 +159,7 @@ $.ajax(settings).done(function (response) {
     "data": {
       "userId": userId,
       "todoData": JSON.stringify(html2json(document.querySelector('.list-group').innerHTML)),
-      "APIKey": "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5"
+      "APIKey": "296c2d24-168e-4105-97bb-e6668d4273b2"
     },
     "method": "PUT",
     "async": true,
