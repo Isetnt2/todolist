@@ -136,10 +136,11 @@ var userAdd = function(url = ``, data) {
         },
         redirect: "follow", // manual, *follow, error
         referrer: "no-referrer", // no-referrer, *client
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
     })
     .then(response => response.json()) // parses response to JSON
-    .then(response => console.log(response));
+    .then(response => console.log(response))
+    .then(resoinse => console.log(body));
 }
   /*var userAdd = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/userAdd",
