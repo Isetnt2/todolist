@@ -97,7 +97,7 @@ var get = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/getTodo",
     "data": {
         "userId" : userId,
-        "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2",
+        "APIKey" : "api_key",
         "AD_PageNbr" : "1",
         "AD_PageSize" : "500"
     },
@@ -121,7 +121,7 @@ $.ajax(settings).done(function (response) {
     "data": {
         "userId" : userId,
         "todoData" : todos.innerHTML,
-        "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2
+        "APIKey" : "api_key
     },
     "method": "POST",
     "async": true,
@@ -138,7 +138,7 @@ $.ajax(settings).done(function (response) {
     "data": {
       "userId": userId,
       "todoData": JSON.stringify(html2json(document.querySelector('.list-group').innerHTML)),
-      "APIKey": "296c2d24-168e-4105-97bb-e6668d4273b2
+      "APIKey": "api_key
     },
     "method": "PUT",
     "async": true,
