@@ -120,7 +120,6 @@ $.ajax(settings).done(function (response) {
                .replace(/\\f/g, "\\f");
     todos = todos.replace(/[\u0000-\u0019]+/g,"");
     json2html(todos);
-    console.log(json2html(JSON.parse(todos)));
     var jsonHTML = json2html(JSON.parse(todos));
     document.querySelector('.list-group').insertAdjacentHTML('beforeend', jsonHTML);
     console.log(jsonHTML);
