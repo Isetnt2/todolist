@@ -91,7 +91,7 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 const user = netlifyIdentity.currentUser();
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', user, "IDK"));
-netlifyIdentity.on('login', user => console.log('login', retriveTodos(), checkIfUserExist(user.id), get(user.id)));
+netlifyIdentity.on('login', user => console.log('login', checkIfUserExist(user.id), get(user.id), retriveTodos()));
 netlifyIdentity.on('logout', () => console.log('Logged out', document.querySelector('.list-group').innerHTML = null));
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
