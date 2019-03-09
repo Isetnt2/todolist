@@ -45,7 +45,7 @@ Sortable.create(todoListWindow, { /* options */ });
         "userId" : user.id,
         "todoData" : json
     }
-    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, json.stringify(data));
+    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, JSON.stringify(data));
    }
  };
  // Sets cookies for todos
