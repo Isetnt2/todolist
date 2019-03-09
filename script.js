@@ -29,7 +29,7 @@ Sortable.create(todoListWindow, { /* options */ });
     else {
       document.querySelector("link.theme").setAttribute("href", "style-dark.css");
     }
-  if (todosToAdd == undefined){
+  if (todosToAdd === undefined){
      return null
    }
    else{
