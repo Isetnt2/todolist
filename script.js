@@ -39,7 +39,8 @@ Sortable.create(todoListWindow, { /* options */ });
     console.log('👉', json);
     const user = netlifyIdentity.currentUser();
     update(user.id);
-    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, {'userId' : user.id, "todoData" : json, "APIkey" : "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5"})
+    apikey = "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5";
+    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, {'userId' : user.id, "todoData" : json, "APIkey" : apikey});
    }
  };
  // Sets cookies for todos
