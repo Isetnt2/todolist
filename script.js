@@ -108,8 +108,17 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
-    json2html(response.Table[0].todoData);
-    console.log(json2html(JSON.parse(response.Table[0].todoData)));
+   var todos = response.Table[0].todoData.replace(/\\n/g, "\\n")
+               .replace(/\\'/g, "\\'")
+               .replace(/\\"/g, '\\"')
+               .replace(/\\&/g, "\\&")
+               .replace(/\\r/g, "\\r")
+               .replace(/\\t/g, "\\t")
+               .replace(/\\b/g, "\\b")
+               .replace(/\\f/g, "\\f");
+    todos = todos.replace(/[\u0000-\u0019]+/g,"");
+    json2html(todos);
+    console.log(json2html(JSON.parse(todos)));
     var jsonHTML = json2html(response.Table[0].todoData);
     document.querySelector('.list-group').insertAdjacentHTML('beforeend', jsonHTML);
     updateClose();
@@ -136,7 +145,7 @@ $.ajax(settings).done(function (response) {
     "url": "https://todo-a4247d.appdrag.site/api/todoUpdate",
     "data": {
       "userId": userId,
-      "todoData": JSON.stringify(html2json(document.querySelector('.list-group').innerHTML.replace(' ', '%20'))),
+      "todoData": JSON.stringify(.replace(' ', '%20'))),
       "APIKey": "296c2d24-168e-4105-97bb-e6668d4273b2"
     },
     "method": "PUT",
