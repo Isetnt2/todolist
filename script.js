@@ -63,6 +63,8 @@ for (var i = 0; i < close.length; i++) {
       let parent = this.parentNode.parentNode;
       parent.remove();
          setCookies();
+         const user = netlifyIdentity.currentUser();
+         update(user.id);
   });
 }
 };
