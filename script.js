@@ -29,7 +29,7 @@ Sortable.create(todoListWindow, { /* options */ });
     else {
       document.querySelector("link.theme").setAttribute("href", "style-dark.css");
     }
-  if (todosToAdd == null){
+  if (todosToAdd == undefined){
      return null
    }
    else{
@@ -108,6 +108,10 @@ var get = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
     console.log(response);
+    if(response.Table.length == 0){
+        return null
+    }
+    else if (response.Table.length != 0){
    var todos = response.Table[0].todoData.replace(/\\n/g, "\\n")
                .replace(/\\'/g, "\\'")
                .replace(/\\"/g, '\\"')
@@ -122,6 +126,7 @@ $.ajax(settings).done(function (response) {
     var jsonHTML = json2html(JSON.parse(todos));
     document.querySelector('.list-group').insertAdjacentHTML('beforeend', jsonHTML);
     updateClose();
+    }
   });
 };
 var checkIfUserExist = function(userId){settings = {
