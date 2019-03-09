@@ -140,7 +140,7 @@ var userAdd = function(url = ``, data) {
     })
     .then(response => response.json()) // parses response to JSON
     .then(response => console.log(response))
-    .then(resoinse => console.log(body));
+    .then(response => console.log(response, body));
 }
   /*var userAdd = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/userAdd",
