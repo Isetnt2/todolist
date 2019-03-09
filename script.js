@@ -39,6 +39,7 @@ Sortable.create(todoListWindow, { /* options */ });
     console.log('👉', json);
     const user = netlifyIdentity.currentUser();
     update(user.id);
+    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, {userId : netlify.currentUser.id, todoData : json, APIkey : "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5"})
    }
  };
  // Sets cookies for todos
@@ -116,7 +117,25 @@ $.ajax(settings).done(function (response) {
     updateClose();
   });
 };
-  var userAdd = function(userId){settings = {
+function userAdd(url = ``, data = {userId, todoData, APIkey}) {
+  // Default options are marked with *
+    return fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, cors, *same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // "Content-Type": "application/x-www-form-urlencoded",
+        },
+        redirect: "follow", // manual, *follow, error
+        referrer: "no-referrer", // no-referrer, *client
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+    })
+    .then(response => response.json()) // parses response to JSON
+    .then(response => console.log(response));
+}
+  /*var userAdd = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/userAdd",
     "data": {
         "userId" : userId,
@@ -132,6 +151,7 @@ $.ajax(settings).done(function (response) {
     console.log(response);
     });
   };
+  */
   var todos = document.querySelector('.list-group').innerHTML;
   var update = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/todoUpdate",
