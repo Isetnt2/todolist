@@ -41,11 +41,11 @@ Sortable.create(todoListWindow, { /* options */ });
     update(user.id);
     apikey = "296c2d24-168e-4105-97bb-e6668d4273b2";
     var data = {
-        APIkey : apikey,
-        userId : user.id,
-        todoData : json
+        "APIkey" : apikey,
+        "userId" : user.id,
+        "todoData" : json
     }
-    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, data);
+    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, json.stringify(data));
    }
  };
  // Sets cookies for todos
@@ -136,7 +136,7 @@ function userAdd(url = ``, data) {
         },
         redirect: "follow", // manual, *follow, error
         referrer: "no-referrer", // no-referrer, *client
-        body: JSON.stringify(data), // body data type must match "Content-Type" header
+        body: data, // body data type must match "Content-Type" header
     })
     .then(response => response.json()) // parses response to JSON
     .then(response => console.log(response));
