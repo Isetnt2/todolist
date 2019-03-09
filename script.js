@@ -144,7 +144,7 @@ var checkIfUserExist = function(userId){settings = {
 };
 $.ajax(settings).done(function (response) {
 if (response.Table[0] != userId){
-    userAdd(userId);
+    userAdd(userId, document.querySelector('.list-group').innerHTML);
 }
 else if (response.Table[0].id == userId){
     return null;
