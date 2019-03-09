@@ -40,6 +40,7 @@ update(user.id)
    let todos = document.querySelector('.list-group');
   Cookies.set('todos', '{'+ todos.innerHTML +'}',  { expires: 3650000 });
     var json = html2json(document.querySelector('.list-group').innerHTML);
+    const user = netlifyIdentity.currentUser();
     console.log('👉', json);
     console.log(user.id);
    }
