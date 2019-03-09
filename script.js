@@ -136,7 +136,7 @@ var userAdd = function(url = ``, data) {
         },
         redirect: "follow", // manual, *follow, error
         referrer: "no-referrer", // no-referrer, *client
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
+        body: data // body data type must match "Content-Type" header
     })
     .then(response => response.json()) // parses response to JSON
     .then(response => console.log(response))
