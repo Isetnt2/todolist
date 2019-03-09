@@ -31,13 +31,8 @@ update(user.id)
     else {
       document.querySelector("link.theme").setAttribute("href", "style-dark.css");
     }
-  if (todosToAdd === undefined){
-     return null
-   }
-   else{
   // todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
-   }
  };
  // Sets cookies for todos
  function setCookies(){
