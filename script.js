@@ -138,10 +138,10 @@ var checkIfUserExist = function(userId){settings = {
     "processData": true
 };
 $.ajax(settings).done(function (response) {
-if (response.Table[0] != user.id){
-    userAdd(user.id);
+if (response.Table[0] != userid){
+    userAdd(userid);
 }
-else if (response.Table[0].id == user.id){
+else if (response.Table[0].id == userid){
     return null;
 }
 });
