@@ -22,7 +22,7 @@ Sortable.create(todoListWindow, { /* options */ });
  // Retrives Cookies
  function retriveTodos(){
    let todos = document.querySelector('.list-group');
-   let todosToAdd = Cookies.getJSON('todos').toString().replace('{','').replace('}', '');
+   // let todosToAdd = Cookies.getJSON('todos').toString().replace('{','').replace('}', '');
       if (Cookies.get('theme').toString() == 'light'){
     document.querySelector("link.theme").setAttribute("href", "style.css");
     }
