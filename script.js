@@ -87,7 +87,7 @@ const user = netlifyIdentity.currentUser();
 
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', user, "IDK"));
-netlifyIdentity.on('login', user => console.log('login', get(user.id)));
+netlifyIdentity.on('login', user => console.log('login', checkIfUserExist(user.id), get(user.id)));
 netlifyIdentity.on('logout', () => console.log('Logged out'));
 netlifyIdentity.on('error', err => console.error('Error', err));
 netlifyIdentity.on('open', () => console.log('Widget opened'));
@@ -146,11 +146,11 @@ else if (response.Table[0].id == user.id){
 }
 });
 };
-  var userAdd = function(userId){settings = {
+  var userAdd = function(userId, todos){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/userAdd",
     "data": {
         "userId" : userId,
-        "todoData" : todos.innerHTML,
+        "todoData" : todos,
         "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2"
     },
     "method": "POST",
