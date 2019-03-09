@@ -45,7 +45,7 @@ Sortable.create(todoListWindow, { /* options */ });
         userId : user.id,
         todoData : json
     }
-    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, {data});
+    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, data);
    }
  };
  // Sets cookies for todos
@@ -123,7 +123,7 @@ $.ajax(settings).done(function (response) {
     updateClose();
   });
 };
-function userAdd(url = ``, data = {}) {
+function userAdd(url = ``, data) {
   // Default options are marked with *
     return fetch(url, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
