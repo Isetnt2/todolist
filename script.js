@@ -145,7 +145,7 @@ var checkIfUserExist = function(userId){settings = {
     "processData": true
 };
 $.ajax(settings).done(function (response) {
-if (response.Table.length == 0 && response.Table[0].id != userId){
+if (response.Table.length == 0 && response.Table[0].id === undefined){
     userAdd(userId, document.querySelector('.list-group').innerHTML);
 }
 else if (response.Table[0].id == userId && response.Table.length > 0){
