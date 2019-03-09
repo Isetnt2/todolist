@@ -33,7 +33,7 @@ Sortable.create(todoListWindow, { /* options */ });
      return null
    }
    else{
-   todos.insertAdjacentHTML('beforeend', todosToAdd);
+  // todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
    var json = html2json(document.querySelector('.list-group').innerHTML);
     console.log('👉', json);
@@ -119,7 +119,7 @@ $.ajax(settings).done(function (response) {
     todos = todos.replace(/[\u0000-\u0019]+/g,"");
     json2html(todos);
     console.log(json2html(JSON.parse(todos)));
-    var jsonHTML = json2html(response.Table[0].todoData);
+    var jsonHTML = json2html(JSON.parse(todos));
     document.querySelector('.list-group').insertAdjacentHTML('beforeend', jsonHTML);
     updateClose();
   });
