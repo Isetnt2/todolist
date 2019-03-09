@@ -124,6 +124,27 @@ $.ajax(settings).done(function (response) {
     updateClose();
   });
 };
+var checkIfUserExist = function(userId){settings = {
+    "url": "https://todo-a4247d.appdrag.site/api/checkExistingUser",
+    "data": {
+        "userId" : userId,
+        "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2",
+        "AD_PageNbr" : "1",
+        "AD_PageSize" : "500"
+    },
+    "method": "GET",
+    "async": true,
+    "crossDomain": true,
+    "processData": true
+};
+$.ajax(settings).done(function (response) {
+if (response.Table[0] != user.id){
+    userAdd(user.id);
+}
+else if (response.Table[0].id == user.id){
+    return null;
+}
+});
   var userAdd = function(userId){settings = {
     "url": "https://todo-a4247d.appdrag.site/api/userAdd",
     "data": {
