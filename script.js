@@ -23,8 +23,8 @@ update(user.id)
  };
  // Retrives Cookies
  function retriveTodos(){
+    const user = netlifyIdentity.currentUser();
    let todos = document.querySelector('.list-group');
-    let todosToAdd = Cookies.getJSON('todos').toString().replace('{','').replace('}', '');
       if (Cookies.get('theme').toString() == 'light'){
     document.querySelector("link.theme").setAttribute("href", "style.css");
     }
@@ -37,11 +37,6 @@ update(user.id)
    else{
   // todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
-   var json = html2json(document.querySelector('.list-group').innerHTML);
-    console.log('👉', json);
-    const user = netlifyIdentity.currentUser();
-    console.log(user.id);
-    update(user.id);
    }
  };
  // Sets cookies for todos
@@ -49,6 +44,9 @@ update(user.id)
    if (Cookies.get('cookiebar') == "CookieAllowed"){
    let todos = document.querySelector('.list-group');
   Cookies.set('todos', '{'+ todos.innerHTML +'}',  { expires: 3650000 });
+    var json = html2json(document.querySelector('.list-group').innerHTML);
+    console.log('👉', json);
+    console.log(user.id);
    }
    else{
    return null;
