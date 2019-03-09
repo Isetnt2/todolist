@@ -40,7 +40,7 @@ Sortable.create(todoListWindow, { /* options */ });
     const user = netlifyIdentity.currentUser();
     update(user.id);
     apikey = "b6c0a7d9-0566-44c1-a754-6c0f883bb2b5";
-    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, {'userId' : user.id, "todoData" : json, "APIkey" : apikey});
+    userAdd(`https://todo-a4247d.appdrag.site/api/userAdd`, {userId : user.id, todoData : json, APIkey : apikey});
    }
  };
  // Sets cookies for todos
@@ -118,7 +118,7 @@ $.ajax(settings).done(function (response) {
     updateClose();
   });
 };
-function userAdd(url = ``, data = {userId, todoData, APIkey}) {
+function userAdd(url = ``, data = {}) {
   // Default options are marked with *
     return fetch(url, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
