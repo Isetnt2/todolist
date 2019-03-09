@@ -10,7 +10,6 @@ updateClose();
 // Creates the todo node
 function windowCreator(message){
  if (event.keyCode == 13) {
-var windowDiv = document.createElement('div');
 todoListWindow.insertAdjacentHTML('beforeend', '<div class="window mac list-group-item"><div class="title-bar" id="light">  <div class="close" id="listItem"></div><div class="minimize"></div><div class="zoom"></div></div><div class="page"><p class="message" id="light">'+message+'</p></div></div>');
 todofield.value = null;
 updateClose();
@@ -80,7 +79,11 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 });
 
-
+function createTodo(JSONdata){
+var todoWindow = document.querySelector('.list-group');
+todoWindow.insertAdjacentHTML('beforeend', JSONdata);
+updateClose();
+}
 // Get todos via db
 const user = netlifyIdentity.currentUser();
 // Bind to events
@@ -121,9 +124,7 @@ $.ajax(settings).done(function (response) {
     todos = todos.replace(/[\u0000-\u0019]+/g,"");
     json2html(todos);
     var jsonHTML = json2html(JSON.parse(todos));
-    document.querySelector('.list-group').insertAdjacentHTML('beforeend', jsonHTML);
-    console.log(jsonHTML);
-    updateClose();
+    createTodo(jsonHTML);
     }
   });
 };
