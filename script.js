@@ -1,5 +1,4 @@
 const todofield = document.getElementsByClassName('todo-input')[0];
-var user = netlifyIdentity.currentUser();
 const todoListWindow = document.querySelector('.todoList');
 var todos = document.querySelector('.list-group');
 var Cookies;
@@ -17,6 +16,7 @@ todofield.value = null;
 updateClose();
 setCookies();
 Sortable.create(todoListWindow, { /* options */ });
+const user = netlifyIdentity.currentUser;
 update(user.id)
 }
   else{null}
@@ -37,6 +37,7 @@ update(user.id)
    else{
   // todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
+   const user = netlifyIdentity.currentUser
    var json = html2json(document.querySelector('.list-group').innerHTML);
     console.log('👉', json);
     update(user.id);
@@ -84,7 +85,7 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 
 
 // Get todos via db
-
+const user = netlifyIdentity.currentUser;
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', user, "IDK"));
 netlifyIdentity.on('login', user => console.log('login', checkIfUserExist(user.id), get(user.id)));
