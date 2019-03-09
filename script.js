@@ -1,5 +1,5 @@
 const todofield = document.getElementsByClassName('todo-input')[0];
-const user = netlifyIdentity.currentUser();
+var user = netlifyIdentity.currentUser();
 const todoListWindow = document.querySelector('.todoList');
 var todos = document.querySelector('.list-group');
 var Cookies;
@@ -81,6 +81,9 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 }
 });
+
+
+// Get todos via db
 
 // Bind to events
 netlifyIdentity.on('init', user => console.log('init', user, "IDK"));
