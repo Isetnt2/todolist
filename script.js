@@ -37,9 +37,10 @@ update(user.id)
    else{
   // todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
-   const user = netlifyIdentity.currentUser
+   const user = netlifyIdentity.currentUser;
    var json = html2json(document.querySelector('.list-group').innerHTML);
     console.log('👉', json);
+    console.log(user.id);
     update(user.id);
    }
  };
