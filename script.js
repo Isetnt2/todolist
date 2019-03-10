@@ -11,13 +11,13 @@ updateClose();
 function windowCreator(message){
     const user = netlifyIdentity.currentUser();
  if (event.keyCode == 13) {
-if (user.id === null || user.id === undefined){
+if (user === null || user === undefined){
      alert('Please login to use this service');
      netlifyIdentity.open();
 }
   else{null}
  }
- else if (user.id !== null && user.id !== undefined){
+ else if (user !== null && user !== undefined){
      todoListWindow.insertAdjacentHTML('beforeend', '<div class="window mac list-group-item"><div class="title-bar" id="light">  <div class="close" id="listItem"></div><div class="minimize"></div><div class="zoom"></div></div><div class="page"><p class="message" id="light">'+message+'</p></div></div>');
     todofield.value = null;
     updateClose();
