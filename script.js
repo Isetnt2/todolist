@@ -9,16 +9,22 @@ updateClose();
 });
 // Creates the todo node
 function windowCreator(message){
+    const user = netlifyIdentity.currentUser();
  if (event.keyCode == 13) {
+if (user.id !== null || user.id !== undefined){
 todoListWindow.insertAdjacentHTML('beforeend', '<div class="window mac list-group-item"><div class="title-bar" id="light">  <div class="close" id="listItem"></div><div class="minimize"></div><div class="zoom"></div></div><div class="page"><p class="message" id="light">'+message+'</p></div></div>');
 todofield.value = null;
 updateClose();
 setCookies();
 Sortable.create(todoListWindow, { /* options */ });
-const user = netlifyIdentity.currentUser();
 update(user.id)
 }
   else{null}
+ }
+ else if (user.id === null || user.id === undefined){
+     alert('Please login to use this service');
+     netlifyIdentity.open();
+ }
  };
  // Retrives Cookies
  function retriveTodos(){
