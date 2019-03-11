@@ -190,6 +190,6 @@ $.ajax(settings).done(function (response) {
     });
   };
   function testScroll(){
-    if(window.pageYOffset>400)document.querySelector('.login-button').hide;
+    if(window.pageYOffset>400)$document.querySelector('div.login-button').hide;
 }
 window.onscroll=testScroll
