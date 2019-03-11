@@ -15,8 +15,6 @@ if (user === null || user === undefined){
      alert('Please login to use this service');
      netlifyIdentity.open();
 }
-  else{null}
- }
  else if (user !== null && user !== undefined){
      todoListWindow.insertAdjacentHTML('beforeend', '<div class="window mac list-group-item"><div class="title-bar" id="light">  <div class="close" id="listItem"></div><div class="minimize"></div><div class="zoom"></div></div><div class="page"><p class="message" id="light">'+message+'</p></div></div>');
     todofield.value = null;
@@ -25,6 +23,8 @@ if (user === null || user === undefined){
     Sortable.create(todoListWindow, { /* options */ });
     update(user.id)
  }
+ }
+  else{null}
  };
  // Retrives Cookies
  function retriveTodos(){
