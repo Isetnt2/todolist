@@ -189,3 +189,7 @@ $.ajax(settings).done(function (response) {
     console.log(response);
     });
   };
+  function testScroll(){
+    if(window.pageYOffset>400)document.querySelector('.login-button').hide;
+}
+window.onscroll=testScroll
