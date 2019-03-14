@@ -19,12 +19,6 @@ body {
   margin: 8px 8px;
   color: #8e8c8c;
 }
-.info {
-  float: right;
-  font-size: 30px;
-  margin: 16px 16px;
-  color: #8e8c8c;
-}
 .window {
   width: 80%;
   background: #3f3f3f;
