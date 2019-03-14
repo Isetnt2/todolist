@@ -20,7 +20,8 @@ function windowCreator(message){
  };
  // Retrives Cookies
  function retriveTodos(){
-   let todos = document.querySelector('.list-group');
+     let todosToAdd = Cookies.get('todos').toString()
+     let todos = document.querySelector('.list-group');
       if (Cookies.get('theme').toString() == 'light'){
     document.querySelector("link.theme").setAttribute("href", "style.css");
     }
