@@ -14,7 +14,20 @@
   </head>
   <body>
       <i class="far fa-sun sun"></i>
-<div class="window mac">
+      <i class="fas fa-info info"></i>
+      <div class="modal">
+      <div class="modal-content">
+        <div class="window mac">
+          <div class="title-bar">
+            <div class="close" id="close"></div>
+            <div class="minimize"></div>
+            <div class="zoom"></div>
+          </div>
+          <div class="page"><span class="message">My personal website:<a class="message" href="https://kennyd.cf" target="_blank">https://kennyd.cf</a></span></div>
+        </div>
+        </div>
+    </div>
+  <div class="window mac">
   <div class="title-bar">
     <div class="close" id="close"></div>
     <div class="minimize"></div>
@@ -25,7 +38,24 @@
     <div id="todoList" class="list-group todoList">
     </div>
    <div data-netlify-identity-button class="login-button"></div>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?theme=altblack&always=1&noGeoIp=1&remember=360000000000"></script>
+   <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.3.0/stitch.js"></script>
+<script>
+  const client = stitch.Stitch.initializeDefaultAppClient('');
+
+  const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-atlas').db('users');
+
+  client.auth.loginWithCredential(new stitch.AnonymousCredential()).then(user =>
+    db.collection('todo-data').updateOne({owner_id: client.auth.user.id}, {$set:{number:42}}, {upsert:true})
+  ).then(() =>
+    db.collection('todo-data').find({owner_id: client.auth.user.id}, { limit: 100}).asArray()
+  ).then(docs => {
+      console.log("Found docs", docs)
+      console.log("[MongoDB Stitch] Connected to Stitch")
+  }).catch(err => {
+    console.error(err)
+  });
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?always=1&noGeoIp=1&showNoConsent=1&remember=30"></script>    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookie-bar/cookiebar-latest.min.js?theme=altblack&always=1&noGeoIp=1&remember=360000000000"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/Sortable.js"></script>
     <script src="/script.js" defer></script>

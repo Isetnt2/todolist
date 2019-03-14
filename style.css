@@ -17,6 +17,11 @@ body {
   font-size: 30px;
   margin: 8px 8px;
 }
+.info {
+  float: right;
+  font-size: 30px;
+  margin: 16px 16px;
+}
 .window {
   width: 80%;
   background: #eee;
