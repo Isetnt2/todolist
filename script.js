@@ -106,7 +106,8 @@ var get = function(userId){settings = {
         "userId" : userId,
         "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2",
         "AD_PageNbr" : "1",
-        "AD_PageSize" : "500"
+        "AD_PageSize" : "500",
+        "siteURL": window.location.href
     },
     "method": "GET",
     "async": true,
@@ -140,7 +141,8 @@ var checkIfUserExist = function(userId){settings = {
         "userId" : userId,
         "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2",
         "AD_PageNbr" : "1",
-        "AD_PageSize" : "500"
+        "AD_PageSize" : "500",
+        "siteURL": window.location.href
     },
     "method": "GET",
     "async": true,
@@ -161,7 +163,8 @@ else if (response.Table[0].id == userId && response.Table.length > 0){
     "data": {
         "userId" : userId,
         "todoData" : todos,
-        "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2"
+        "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2",
+        "siteURL": window.location.href
     },
     "method": "POST",
     "async": true,
@@ -178,7 +181,8 @@ $.ajax(settings).done(function (response) {
     "data": {
       "userId": userId,
       "todoData": JSON.stringify(html2json(document.querySelector('.list-group').innerHTML)),
-      "APIKey": "296c2d24-168e-4105-97bb-e6668d4273b2"
+      "APIKey": "296c2d24-168e-4105-97bb-e6668d4273b2",
+      "siteURL": window.location.href
     },
     "method": "PUT",
     "async": true,
