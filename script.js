@@ -9,26 +9,17 @@ updateClose();
 });
 // Creates the todo node
 function windowCreator(message){
-    const user = netlifyIdentity.currentUser();
  if (event.keyCode == 13) {
-if (user === null || user === undefined){
-     alert('Please login to use this service');
-     netlifyIdentity.open();
-}
- else if (user !== null && user !== undefined){
      todoListWindow.insertAdjacentHTML('beforeend', '<div class="window mac list-group-item"><div class="title-bar" id="light">  <div class="close" id="listItem"></div><div class="minimize"></div><div class="zoom"></div></div><div class="page"><p class="message" id="light">'+message+'</p></div></div>');
     todofield.value = null;
     updateClose();
     setCookies();
     Sortable.create(todoListWindow, { /* options */ });
-    update(user.id)
- }
  }
   else{null}
  };
  // Retrives Cookies
  function retriveTodos(){
-    const user = netlifyIdentity.currentUser();
    let todos = document.querySelector('.list-group');
       if (Cookies.get('theme').toString() == 'light'){
     document.querySelector("link.theme").setAttribute("href", "style.css");
@@ -36,7 +27,7 @@ if (user === null || user === undefined){
     else {
       document.querySelector("link.theme").setAttribute("href", "style-dark.css");
     }
-  // todos.insertAdjacentHTML('beforeend', todosToAdd);
+  todos.insertAdjacentHTML('beforeend', todosToAdd);
    updateClose();
  };
  // Sets cookies for todos
@@ -44,10 +35,6 @@ if (user === null || user === undefined){
    if (Cookies.get('cookiebar') == "CookieAllowed"){
    let todos = document.querySelector('.list-group');
   Cookies.set('todos', '{'+ todos.innerHTML +'}',  { expires: 3650000 });
-    var json = html2json(document.querySelector('.list-group').innerHTML);
-    const user = netlifyIdentity.currentUser();
-    console.log('👉', json);
-    console.log(user.id);
    }
    else{
    return null;
@@ -62,8 +49,6 @@ for (var i = 0; i < close.length; i++) {
       let parent = this.parentNode.parentNode;
       parent.remove();
          setCookies();
-         const user = netlifyIdentity.currentUser();
-         update(user.id);
   });
 }
 };
@@ -84,112 +69,3 @@ Cookies.set('theme', 'dark',  { expires: 3650000 });
 }
 }
 });
-
-function createTodo(JSONdata){
-var todoWindow = document.querySelector('.list-group');
-todoWindow.insertAdjacentHTML('beforeend', JSONdata);
-updateClose();
-}
-// Get todos via db
-const user = netlifyIdentity.currentUser();
-// Bind to events
-netlifyIdentity.on('init', user => console.log('init', user, "IDK"));
-netlifyIdentity.on('login', user => console.log('login', checkIfUserExist(user.id), get(user.id)));
-netlifyIdentity.on('logout', () => console.log('Logged out', document.querySelector('.list-group').innerHTML = null));
-netlifyIdentity.on('error', err => console.error('Error', err));
-netlifyIdentity.on('open', () => console.log('Widget opened'));
-netlifyIdentity.on('close', () => console.log('Widget closed'));
-
-var get = function(userId){settings = {
-    "url": "https://todo-a4247d.appdrag.site/api/getTodo",
-    "data": {
-        "userId" : userId,
-        "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2",
-        "AD_PageNbr" : "1",
-        "AD_PageSize" : "500"
-    },
-    "method": "GET",
-    "async": true,
-    "crossDomain": true,
-    "processData": true
-};
-$.ajax(settings).done(function (response) {
-    console.log(response);
-    if(response.Table.length == 0){
-        return null
-    }
-    else if (response.Table.length != 0){
-   var todos = response.Table[0].todoData.replace(/\\n/g, "\\n")
-               .replace(/\\'/g, "\\'")
-               .replace(/\\"/g, '\\"')
-               .replace(/\\&/g, "\\&")
-               .replace(/\\r/g, "\\r")
-               .replace(/\\t/g, "\\t")
-               .replace(/\\b/g, "\\b")
-               .replace(/\\f/g, "\\f");
-    todos = todos.replace(/[\u0000-\u0019]+/g,"");
-    json2html(todos);
-    var jsonHTML = json2html(JSON.parse(todos));
-    createTodo(jsonHTML);
-    }
-  });
-};
-var checkIfUserExist = function(userId){settings = {
-    "url": "https://todo-a4247d.appdrag.site/api/checkExistingUser",
-    "data": {
-        "userId" : userId,
-        "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2",
-        "AD_PageNbr" : "1",
-        "AD_PageSize" : "500"
-    },
-    "method": "GET",
-    "async": true,
-    "crossDomain": true,
-    "processData": true
-};
-$.ajax(settings).done(function (response) {
-if (response.Table.length == 0){
-    userAdd(userId, document.querySelector('.list-group').innerHTML);
-}
-else if (response.Table[0].id == userId && response.Table.length > 0){
-    return null;
-}
-});
-};
-  var userAdd = function(userId, todos){settings = {
-    "url": "https://todo-a4247d.appdrag.site/api/userAdd",
-    "data": {
-        "userId" : userId,
-        "todoData" : todos,
-        "APIKey" : "296c2d24-168e-4105-97bb-e6668d4273b2"
-    },
-    "method": "POST",
-    "async": true,
-    "crossDomain": true,
-    "processData": true
-};
-$.ajax(settings).done(function (response) {
-    console.log(response);
-    });
-  };
-  var todos = document.querySelector('.list-group').innerHTML;
-  var update = function(userId){settings = {
-    "url": "https://todo-a4247d.appdrag.site/api/todoUpdate",
-    "data": {
-      "userId": userId,
-      "todoData": JSON.stringify(html2json(document.querySelector('.list-group').innerHTML)),
-      "APIKey": "296c2d24-168e-4105-97bb-e6668d4273b2"
-    },
-    "method": "PUT",
-    "async": true,
-    "crossDomain": true,
-    "processData": true
-};
-$.ajax(settings).done(function (response) {
-    console.log(response);
-    });
-  };
-  function testScroll(){
-    if(window.pageYOffset>400)$document.querySelector('div.login-button').hide;
-}
-window.onscroll=testScroll
